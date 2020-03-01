@@ -6,11 +6,8 @@ class CommentsController < ApplicationController
     @comment = @story.comments.new(comment_params)
     @comment.user = current_user
 
-    if @comment.save
-      render js: "alert('OK')"
-    else
-      render js: "alert('error')"
-    end
+    render js: "alert('error')" unless @comment.save
+
   end
 
   private
