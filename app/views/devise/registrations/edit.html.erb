@@ -5,17 +5,31 @@
 
   <div class="field">
     <%= f.label :username, '使用者名稱' %><br />
-    <%= f.text_field :username, class: 'input is-medium' %>
+    <div class="control">
+      <%= f.text_field :username, class: 'input is-medium' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar, '大頭照' %><br />
+    <div class="control">
+      <%= f.file_field :avatar %>
+    </div>
+    <%= avatar(current_user) %>
   </div>
 
   <div class="field">
     <%= f.label :intro, '個人簡介' %><br />
-    <%= f.text_area :intro, rows: 5, class: 'textarea is-medium' %>
+    <div class="control">
+      <%= f.text_area :intro, rows: 5, class: 'textarea is-medium' %>
+    </div>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email", class: 'input is-medium' %>
+    <div class="control">
+      <%= f.email_field :email, autocomplete: "email", class: 'input is-medium' %>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -24,16 +38,20 @@
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'input is-medium' %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <div class="control">
+      <%= f.password_field :password, autocomplete: "new-password", class: 'input is-medium' %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input is-medium' %>
+    <div class="control">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input is-medium' %>
+    </div>
   </div>
 
   <div class="actions">
